@@ -17,8 +17,8 @@ public enum Gear {
     GEAR_9(9f, "9"),
     GEAR_10(10f, "R");
 
-    private float value;
-    private String name;
+    private final float value;
+    private final String name;
 
     Gear(float value, String name) {
         this.value = value;
