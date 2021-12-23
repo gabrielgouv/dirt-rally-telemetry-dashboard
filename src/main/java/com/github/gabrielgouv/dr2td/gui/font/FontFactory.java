@@ -6,7 +6,7 @@ import java.io.InputStream;
 public class FontFactory {
 
     private final static String name = "FiraCode.ttf";
-    private static InputStream cache;
+    private static Font cache;
 
     public static Font getDefaultFont(float size) {
 
@@ -14,15 +14,12 @@ public class FontFactory {
         String fontName = "/fonts/" + name;
 
         try {
-            InputStream inputStream = FontFactory.class.getResourceAsStream(fontName);
-
             if (cache == null) {
-                cache = inputStream;
+                InputStream inputStream = FontFactory.class.getResourceAsStream(fontName);
+                cache = Font.createFont(Font.TRUETYPE_FONT, inputStream);
             }
 
-            assert inputStream != null;
-
-            font = Font.createFont(Font.TRUETYPE_FONT, inputStream).deriveFont(size);
+            font = cache.deriveFont(size);
         } catch (Exception ex) {
             ex.printStackTrace();
             System.err.println("Cannot load " + fontName + ".  Using Arial font.");
