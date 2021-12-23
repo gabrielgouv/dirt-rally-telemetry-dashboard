@@ -5,6 +5,7 @@ import com.github.gabrielgouv.dr2td.gui.base.GaugeComponent;
 import com.github.gabrielgouv.dr2td.gui.base.PedalComponent;
 import com.github.gabrielgouv.dr2td.gui.base.SteeringWheelComponent;
 import com.github.gabrielgouv.dr2td.gui.enums.Gear;
+import com.github.gabrielgouv.dr2td.gui.font.FontFactory;
 import com.github.gabrielgouv.dr2td.model.TelemetryData;
 
 import javax.swing.*;
@@ -41,7 +42,7 @@ public class Dashboard extends DraggableFrame {
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
                 if (waitingGame) {
-                    g2.setFont(new Font("Arial", Font.PLAIN, 20));
+                    g2.setFont(FontFactory.getDefaultFont(20f));
                     g2.setColor(Color.WHITE);
                     g2.drawString("Waiting telemetry data from Dirt Rally 2.0...", 30, 70);
                     return;
@@ -57,7 +58,7 @@ public class Dashboard extends DraggableFrame {
                 g.setColor(new Color(50, 50, 50));
                 g.fillRect(0, 0, 115, getHeight());
 
-                g2.setFont(new Font("Arial", Font.PLAIN, 100));
+                g2.setFont(FontFactory.getDefaultFont(100));
                 g2.setColor(Color.WHITE);
                 g2.drawString(gear.getName(), 30, 99);
 
@@ -84,13 +85,13 @@ public class Dashboard extends DraggableFrame {
                     wheel.setBackground(new Color(17, 17, 17, 0));
                     this.add(wheel);
 
-                    g2.setFont(new Font("Arial", Font.PLAIN, 55));
+                    g2.setFont(FontFactory.getDefaultFont(55));
                     g2.setColor(Color.WHITE);
-                    g2.drawString(String.valueOf((int) speed), 148, 68);
+                    g2.drawString(String.valueOf((int) speed), 144, 68);
 
-                    g2.setFont(new Font("Arial", Font.PLAIN, 25));
+                    g2.setFont(FontFactory.getDefaultFont(25));
                     g2.setColor(Color.WHITE);
-                    g2.drawString("Km/h", 148, 102);
+                    g2.drawString("KM/H", 148, 102);
 
                     gaugeRpm.setLocation(560, 14);
                     gaugeRpm.setSize(110, 110);

@@ -1,5 +1,6 @@
 package com.github.gabrielgouv.dr2td.gui.base;
 
+import com.github.gabrielgouv.dr2td.gui.font.FontFactory;
 import com.github.gabrielgouv.dr2td.gui.util.MathUtil;
 import com.google.common.primitives.Doubles;
 
@@ -48,12 +49,12 @@ public class GaugeComponent extends JPanel {
         FontMetrics fm2 = g2.getFontMetrics();
         int x2 = (getWidth() - fm2.stringWidth(text2)) / 2;
 
-        g2.setFont(new Font("Arial", Font.PLAIN, 20));
+        g2.setFont(FontFactory.getDefaultFont(20f));
         g2.setColor(Color.WHITE);
-        g2.drawString(text, x - 5, getHeight() - 50);
+        g2.drawString(text, x - 10, getHeight() - 50);
 
-        g2.setFont(new Font("Arial", Font.PLAIN, 20));
-        g2.drawString(description, x2 - 8, getHeight() - 17);
+        g2.setFont(FontFactory.getDefaultFont(20f));
+        g2.drawString(description, x2 - 5, getHeight() - 17);
 
         drawBackgroundArc(g2);
 
