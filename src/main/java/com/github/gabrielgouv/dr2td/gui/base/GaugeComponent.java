@@ -20,7 +20,7 @@ public class GaugeComponent extends JPanel {
 
     private long blinkUpdate = 0;
     private long blinkInterval = 30;
-    private float blinkValue = 200;
+    private float colorChangeValue = 200;
 
     private Color lastColor = Color.WHITE;
 
@@ -65,7 +65,7 @@ public class GaugeComponent extends JPanel {
         currentContext.rotate(Math.toRadians(startAngle));
 //        g2.transform(currentContext);
 
-        if (progress >= blinkValue) {
+        if (progress >= colorChangeValue) {
             g2.setColor(Color.RED);
         } else {
             g2.setColor(Color.WHITE);
@@ -121,8 +121,8 @@ public class GaugeComponent extends JPanel {
 //        repaint();
     }
 
-    public void setBlinkValue(float value) {
-        this.blinkValue = value;
+    public void setColorChangeValue(float value) {
+        this.colorChangeValue = value;
     }
 
 }

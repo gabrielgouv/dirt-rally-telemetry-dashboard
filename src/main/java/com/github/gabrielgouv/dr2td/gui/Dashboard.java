@@ -6,6 +6,7 @@ import com.github.gabrielgouv.dr2td.gui.base.PedalComponent;
 import com.github.gabrielgouv.dr2td.gui.base.SteeringWheelComponent;
 import com.github.gabrielgouv.dr2td.gui.enums.Gear;
 import com.github.gabrielgouv.dr2td.gui.font.FontFactory;
+import com.github.gabrielgouv.dr2td.gui.util.MathUtil;
 import com.github.gabrielgouv.dr2td.model.TelemetryData;
 
 import javax.swing.*;
@@ -24,6 +25,7 @@ public class Dashboard extends DraggableFrame {
     private Gear gear = Gear.GEAR_N;
     private boolean waitingGame = true;
     private float rpm;
+    private float maximumGaugeRpm;
     private float maximumRpm;
     private float speed;
 
@@ -98,8 +100,8 @@ public class Dashboard extends DraggableFrame {
                     gaugeRpm.setBackground(new Color(17, 17, 17, 0));
                     gaugeRpm.setDescription("RPM");
                     gaugeRpm.setMinValue(0);
-                    gaugeRpm.setMaxValue(10000);
-                    gaugeRpm.setBlinkValue(maximumRpm - 200);
+                    gaugeRpm.setMaxValue(maximumGaugeRpm);
+                    gaugeRpm.setColorChangeValue(maximumRpm);
                     this.add(gaugeRpm);
 
                 } catch (Exception e) {
@@ -144,7 +146,8 @@ public class Dashboard extends DraggableFrame {
         gaugeRpm.setProgress(telemetryData.getEngineSpeed() * 10);
         gear = Gear.fromValue(telemetryData.getGear()).get();
         rpm = telemetryData.getEngineSpeed() * 10;
-        maximumRpm = (telemetryData.getMaximumRpm() * 10);
+        maximumRpm = (telemetryData.getMaximumRpm() * 10) - 200;
+        maximumGaugeRpm = (MathUtil.roundToNextThousand(telemetryData.getMaximumRpm() * 10));
         speed = telemetryData.getSpeed() * 3.6f;
         throttlePedal.setInput(telemetryData.getThrottleInput());
         brakePedal.setInput(telemetryData.getBrakeInput());

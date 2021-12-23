@@ -8,4 +8,8 @@ public final class MathUtil {
         return x + ((value - a) * (y - x)) / (b - a);
     }
 
+    public static float roundToNextThousand(float value) {
+        return (float) (Math.ceil(value / 1000.0) * 1000);
+    }
+
 }
