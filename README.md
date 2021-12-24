@@ -2,7 +2,7 @@
     <img src="docs/images/dr2td_dashboard.png" alt="Header">
 </p>
 
-# Telemetry Dashboard for Dirt Rally 2.0 (WIP)
+# Telemetry Dashboard for DiRT Rally 2.0 (WIP)
 
 ### Displays
 
@@ -12,7 +12,7 @@
 - Throttle, brake and clutch pedals input
 - Engine RPM
 
-### Dirt Rally 2.0 configuration
+### DiRT Rally 2.0 configuration
 
 1. Go to `C:\Users\<USER>\Documents\My Games\DiRT Rally 2.0\hardwaresettings`;
 2. Open `hardware_settings_config` with your favorite text editor;
