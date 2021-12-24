@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class GUIGeneralConfig {
 
     private String backgroundColor;
+    private boolean antialiasing;
     private GUIGearConfig gearConfig;
     private GUISpeedConfig speedConfig;
     private GUISteeringWheelConfig steeringWheelConfig;
