@@ -29,9 +29,9 @@
    - port = 10001
 
 ## Download and Installation
-### Latest version is: **[v0.1.0-alpha](/releases/tag/v0.1.0-alpha)**
+### Latest version is: **[v0.1.0-alpha](https://github.com/gabrielgouv/dirt-rally-telemetry-dashboard/releases/tag/v0.1.0-alpha)**
 
-To download other versions, go to the [releases page](/releases) and look for the specific version.
+To download other versions, go to the [releases page](https://github.com/gabrielgouv/dirt-rally-telemetry-dashboard/releases) and look for the specific version.
 
 This application does not have an installer, just run the executable file.
 
