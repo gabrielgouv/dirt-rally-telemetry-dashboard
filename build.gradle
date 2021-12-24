@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'org.example'
-version '1.0-SNAPSHOT'
+version '0.1.0-alpha'
 
 repositories {
     mavenCentral()
@@ -20,8 +20,8 @@ test {
 }
 
 launch4j {
-    outfile = 'DR2TD.exe'
+    outfile = "DR2TD-v${project.version}.exe"
     mainClassName = 'com.github.gabrielgouv.dr2td.bootstrap.Bootstrap'
     icon = "${projectDir}/src/main/resources/icons/app.ico"
-    productName = 'DiRT Rally 2.0 Telemetry Dashboard'
+    productName = "DiRT Rally 2.0 Telemetry Dashboard v${project.version}"
 }
