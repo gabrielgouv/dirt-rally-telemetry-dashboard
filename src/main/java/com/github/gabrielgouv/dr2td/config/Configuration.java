@@ -6,26 +6,26 @@ import java.awt.*;
 
 public class Configuration {
 
-    private boolean antialiasing = true;
-    private Color dashboardBackgroundColor = new Color(24, 24, 24);
-    private boolean dashboardRpmRedlinePropagate = true;
-    private Color dashboardRpmRedlineColorOverride = new Color(126, 0, 0);
-    private Color gearsBackgroundColor = new Color(50, 50, 50);
-    private Color gearsFontColor = new Color(255, 255, 255);
-    private Color speedFontColor = new Color(255, 255, 255);
-    private Metric speedMetric = Metric.KPH;
-    private float steeringWheelMaxDegreeRotation = 900f;
-    private Color steeringWheelColor = new Color(50, 50, 50);
-    private Color steeringWheelStripColor = new Color(255, 255, 255);
-    private Color pedalThrottleBackgroundColor = new Color(50, 50, 50);
-    private Color pedalThrottleForegroundColor = new Color(0, 255, 0);
-    private Color pedalBrakeBackgroundColor = new Color(50, 50, 50);
-    private Color pedalBrakeForegroundColor = new Color(255, 0, 0);
-    private Color pedalClutchBackgroundColor = new Color(50, 50, 50);
-    private Color pedalClutchForegroundColor = new Color(0, 0, 255);
-    private Color rpmGaugeBackgroundColor = new Color(50, 50, 50);
-    private Color rpmGaugeForegroundColor = new Color(255, 0, 0);
-    private Color rpmFontColor = new Color(255, 255, 255);
+    private boolean antialiasing                    = true;
+    private Color dashboardBackgroundColor          = new Color(24, 24, 24);
+    private boolean dashboardRpmRedlinePropagate    = true;
+    private Color dashboardRpmRedlineColorOverride  = new Color(126, 0, 0);
+    private Color gearsBackgroundColor              = new Color(50, 50, 50);
+    private Color gearsFontColor                    = new Color(255, 255, 255);
+    private Color speedFontColor                    = new Color(255, 255, 255);
+    private Metric speedMetric                      = Metric.KPH;
+    private float steeringWheelMaxDegreeRotation    = 900f;
+    private Color steeringWheelColor                = new Color(50, 50, 50);
+    private Color steeringWheelStripColor           = new Color(255, 255, 255);
+    private Color pedalThrottleBackgroundColor      = new Color(50, 50, 50);
+    private Color pedalThrottleForegroundColor      = new Color(0, 255, 0);
+    private Color pedalBrakeBackgroundColor         = new Color(50, 50, 50);
+    private Color pedalBrakeForegroundColor         = new Color(255, 0, 0);
+    private Color pedalClutchBackgroundColor        = new Color(50, 50, 50);
+    private Color pedalClutchForegroundColor        = new Color(0, 0, 255);
+    private Color rpmGaugeBackgroundColor           = new Color(50, 50, 50);
+    private Color rpmGaugeForegroundColor           = new Color(255, 0, 0);
+    private Color rpmFontColor                      = new Color(255, 255, 255);
     private Color rpmRedlineForegroundColorOverride = new Color(255, 0, 0);
 
     public boolean isAntialiasing() {
