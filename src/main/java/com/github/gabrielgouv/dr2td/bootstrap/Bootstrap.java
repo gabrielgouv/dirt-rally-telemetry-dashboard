@@ -1,5 +1,6 @@
 package com.github.gabrielgouv.dr2td.bootstrap;
 
+import com.github.gabrielgouv.dr2td.config.Configuration;
 import com.github.gabrielgouv.dr2td.factory.TelemetryDataFactory;
 import com.github.gabrielgouv.dr2td.gui.Dashboard;
 import com.github.gabrielgouv.dr2td.net.UDPClient;
@@ -8,7 +9,7 @@ import java.net.DatagramPacket;
 
 public class Bootstrap {
 
-    private static final Dashboard dashboard = new Dashboard();
+    private static final Dashboard dashboard = new Dashboard(new Configuration());
 
     public static void main(String[] args) {
         // TODO: load config file

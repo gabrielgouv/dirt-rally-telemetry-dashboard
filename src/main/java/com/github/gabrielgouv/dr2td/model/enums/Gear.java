@@ -25,13 +25,13 @@ public enum Gear {
         this.name = name;
     }
 
-    public static Optional<Gear> fromValue(float value) {
+    public static Gear fromValue(float value) {
         for (Gear gear : Gear.values()) {
             if (gear.value == value) {
-                return Optional.of(gear);
+                return gear;
             }
         }
-        return Optional.empty();
+        return GEAR_N;
     }
 
     public float getValue() {

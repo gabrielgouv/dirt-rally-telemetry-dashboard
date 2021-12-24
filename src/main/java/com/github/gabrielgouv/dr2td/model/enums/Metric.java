@@ -4,16 +4,18 @@ import java.util.Optional;
 
 public enum Metric {
 
-    KPH("km/h", "KPH"),
-    MPH("mi/h", "MPH"),
-    MPS("m/s", "MPS");
+    KPH("km/h", "KPH", 3.6f),
+    MPH("mi/h", "MPH", 2.23694f),
+    MPS("m/s", "MPS", 1f);
 
     private final String name;
     private final String code;
+    private final float multiplier;
 
-    Metric(String name, String code) {
+    Metric(String name, String code, float multiplier) {
         this.name = name;
         this.code = code;
+        this.multiplier = multiplier;
     }
 
     public static Optional<Metric> fromCode(String code) {
@@ -23,6 +25,18 @@ public enum Metric {
             }
         }
         return Optional.empty();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public float getMultiplier() {
+        return multiplier;
     }
 
 }

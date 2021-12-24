@@ -7,7 +7,7 @@ import java.awt.*;
 public class Configuration {
 
     private boolean antialiasing                    = true;
-    private Color dashboardBackgroundColor          = new Color(24, 24, 24);
+    private Color dashboardBackgroundColor          = new Color(17, 17, 17);
     private boolean dashboardRpmRedlinePropagate    = true;
     private Color dashboardRpmRedlineColorOverride  = new Color(126, 0, 0);
     private Color gearsBackgroundColor              = new Color(50, 50, 50);
