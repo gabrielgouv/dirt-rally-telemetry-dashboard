@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'edu.sc.seis.launch4j' version '2.5.1'
 }
 
 group 'org.example'
@@ -18,4 +19,11 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+launch4j {
+    outfile = 'DR2TD.exe'
+    mainClassName = 'com.github.gabrielgouv.dr2td.bootstrap.Bootstrap'
+    icon = "${projectDir}/src/main/resources/icons/app.ico"
+    productName = 'Dirt Rally 2.0 Telemetry Dashboard'
 }
