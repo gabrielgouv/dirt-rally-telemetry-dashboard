@@ -7,7 +7,7 @@
 ### Displays
 
 - Current gear
-- Current Speed
+- Current speed
 - Steering wheel position
 - Throttle, brake and clutch pedals input
 - Engine RPM
@@ -15,7 +15,7 @@
 ### DiRT Rally 2.0 configuration
 
 1. Go to `C:\Users\<USER>\Documents\My Games\DiRT Rally 2.0\hardwaresettings`;
-2. Open `hardware_settings_config` with your favorite text editor;
+2. Open `hardware_settings_config` file with your favorite text editor;
 3. Find for **udp** tag and configure as shown below:
       ```xml
       <motion_platform>
