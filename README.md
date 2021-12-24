@@ -4,7 +4,7 @@
 
 # Telemetry Dashboard for DiRT Rally 2.0 (WIP)
 
-### Displays
+## Displays
 
 - Current gear
 - Current speed
@@ -12,7 +12,7 @@
 - Throttle, brake and clutch pedals input
 - Engine RPM
 
-### DiRT Rally 2.0 configuration
+## DiRT Rally 2.0 configuration
 
 1. Go to `C:\Users\<USER>\Documents\My Games\DiRT Rally 2.0\hardwaresettings`;
 2. Open `hardware_settings_config` file with your favorite text editor;
@@ -28,8 +28,12 @@
    - extradata = 3
    - port = 10001
 
-### Installation
-WIP
+## Download and Installation
+### Latest version is: **[v0.1.0-alpha](/releases/tag/v0.1.0-alpha)**
+
+To download other versions, go to the [releases page](/releases) and look for the specific version.
+
+This application does not have an installer, just run the executable file.
 
 ### Use
 WIP
