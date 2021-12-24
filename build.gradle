@@ -25,5 +25,5 @@ launch4j {
     outfile = 'DR2TD.exe'
     mainClassName = 'com.github.gabrielgouv.dr2td.bootstrap.Bootstrap'
     icon = "${projectDir}/src/main/resources/icons/app.ico"
-    productName = 'Dirt Rally 2.0 Telemetry Dashboard'
+    productName = 'DiRT Rally 2.0 Telemetry Dashboard'
 }
