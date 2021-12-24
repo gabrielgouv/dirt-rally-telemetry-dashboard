@@ -110,14 +110,6 @@ public class Dashboard extends DraggableFrame {
                     e.printStackTrace();
                 }
 
-                if (waitingGame) {
-                    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-                    g2.setColor(new Color(255, 0, 0));
-                    g2.setFont(new Font("Arial", Font.PLAIN, 15));
-                    g2.drawString("Waiting", 40, 117);
-                    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                }
-
             }
         };
 
