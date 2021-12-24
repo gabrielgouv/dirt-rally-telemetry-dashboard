@@ -2,7 +2,6 @@ package com.github.gabrielgouv.dr2td.gui.base;
 
 import com.github.gabrielgouv.dr2td.gui.font.FontFactory;
 import com.github.gabrielgouv.dr2td.gui.util.MathUtil;
-import com.google.common.primitives.Doubles;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,12 +30,8 @@ public class GaugeComponent extends JPanel {
         AffineTransform affineTransform = new AffineTransform();
         super.paintComponent(g);
 
-//        double progressT = progress * 2.4 <= finalAngle ? (int) (progress * 2.4) : (int) finalAngle;
+        double progressT = MathUtil.mapInRange(progress, minSpeed, maxSpeed, 0, finalAngle);
 
-        // TODO: maybe can remove constrainToRange
-        double progressT = Doubles.constrainToRange(MathUtil.mapInRange(progress, minSpeed, maxSpeed, 0, finalAngle), 0, finalAngle);
-
-//        int speed = (int) Doubles.constrainToRange(progress, minSpeed, maxSpeed);
         int speed = (int) progress;
 
         Graphics2D g2 = (Graphics2D) g;
@@ -90,19 +85,6 @@ public class GaugeComponent extends JPanel {
         this.minSpeed = value;
     }
 
-    private void blink(Graphics2D g2) {
-        if (System.currentTimeMillis() >= blinkUpdate) {
-            if (lastColor.equals(new Color(255, 0, 0))) {
-                lastColor = Color.RED;
-                g2.setColor(Color.RED);
-            } else {
-                lastColor = new Color(255, 0, 0);
-                g2.setColor(new Color(255, 0, 0));
-            }
-            blinkUpdate = System.currentTimeMillis() + blinkInterval;
-        }
-    }
-
     private void drawBackgroundArc(Graphics2D g2) {
         AffineTransform affineTransform = new AffineTransform();
         AffineTransform currentContext = new AffineTransform();
@@ -118,7 +100,6 @@ public class GaugeComponent extends JPanel {
 
     public void setProgress(double value) {
         progress = value;
-//        repaint();
     }
 
     public void setColorChangeValue(float value) {
