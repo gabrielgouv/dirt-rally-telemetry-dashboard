@@ -46,7 +46,9 @@ public class Dashboard extends DraggableFrame {
                 if (waitingGame) {
                     g2.setFont(FontFactory.getDefaultFont(20f));
                     g2.setColor(Color.WHITE);
-                    g2.drawString("Waiting telemetry data from Dirt Rally 2.0...", 30, 70);
+                    g2.drawString("Waiting telemetry data...", 50, 60);
+                    g2.setFont(FontFactory.getDefaultFont(15f));
+                    g2.drawString("Start a race in Dirty Rally 2.0 to start receiving data", 50, 83);
                     return;
                 }
 
