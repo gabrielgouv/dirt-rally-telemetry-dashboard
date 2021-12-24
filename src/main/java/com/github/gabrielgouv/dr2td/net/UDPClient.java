@@ -1,5 +1,7 @@
 package com.github.gabrielgouv.dr2td.net;
 
+import javax.swing.*;
+import java.net.BindException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.function.Consumer;
@@ -32,8 +34,13 @@ public class UDPClient {
                     onPacketReceived.accept(packet);
                 }
             }
+        } catch (BindException bindException) {
+            JOptionPane.showMessageDialog(null, String.format("Port %d is already in use by another application.\n" +
+                    "Change the port in the settings.cfg file or close applications that are using this port.", port));
+            System.exit(1);
         } catch (Exception e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, String.format("Unexpected error occurred:\n%s", e.getLocalizedMessage()));
+            System.exit(2);
         }
     }
 
