@@ -4,7 +4,7 @@ import com.github.gabrielgouv.dr2td.gui.base.DraggableFrame;
 import com.github.gabrielgouv.dr2td.gui.base.GaugeComponent;
 import com.github.gabrielgouv.dr2td.gui.base.PedalComponent;
 import com.github.gabrielgouv.dr2td.gui.base.SteeringWheelComponent;
-import com.github.gabrielgouv.dr2td.gui.enums.Gear;
+import com.github.gabrielgouv.dr2td.model.enums.Gear;
 import com.github.gabrielgouv.dr2td.gui.font.FontFactory;
 import com.github.gabrielgouv.dr2td.gui.util.MathUtil;
 import com.github.gabrielgouv.dr2td.model.TelemetryData;

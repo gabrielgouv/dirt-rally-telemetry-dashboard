@@ -1,4 +1,4 @@
-package com.github.gabrielgouv.dr2td.gui.enums;
+package com.github.gabrielgouv.dr2td.model.enums;
 
 import java.util.Optional;
 
