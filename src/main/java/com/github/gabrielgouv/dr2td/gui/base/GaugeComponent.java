@@ -17,11 +17,7 @@ public class GaugeComponent extends JPanel {
     private double minSpeed = 0;
     private double maxSpeed = 100;
 
-    private long blinkUpdate = 0;
-    private long blinkInterval = 30;
     private float colorChangeValue = 200;
-
-    private Color lastColor = Color.WHITE;
 
     private String description = "- - -";
 
