@@ -10,14 +10,18 @@ import java.awt.geom.AffineTransform;
 // TODO: Refactor this entire class
 public class GaugeComponent extends JPanel {
 
-    private double progress;
+    private double input;
     private double startAngle = 150;
     private double finalAngle = 240;
 
     private double minSpeed = 0;
     private double maxSpeed = 100;
 
-    private float colorChangeValue = 200;
+    private float redlineValue = 200;
+    private Color fontColor;
+    private Color backgroundColor;
+    private Color foregroundColor;
+    private Color redlineColor;
 
     private String description = "- - -";
 
@@ -26,9 +30,9 @@ public class GaugeComponent extends JPanel {
         AffineTransform affineTransform = new AffineTransform();
         super.paintComponent(g);
 
-        double progressT = MathUtil.mapInRange(progress, minSpeed, maxSpeed, 0, finalAngle);
+        double progressT = MathUtil.mapInRange(input, minSpeed, maxSpeed, 0, finalAngle);
 
-        int speed = (int) progress;
+        int speed = (int) input;
 
         Graphics2D g2 = (Graphics2D) g;
 
@@ -40,8 +44,9 @@ public class GaugeComponent extends JPanel {
         FontMetrics fm2 = g2.getFontMetrics();
         int x2 = (getWidth() - fm2.stringWidth(text2)) / 2;
 
+        g2.setColor(fontColor);
+
         g2.setFont(FontFactory.getDefaultFont(20f));
-        g2.setColor(Color.WHITE);
         g2.drawString(text, x - 10, getHeight() - 50);
 
         g2.setFont(FontFactory.getDefaultFont(20f));
@@ -54,12 +59,11 @@ public class GaugeComponent extends JPanel {
         currentContext.concatenate(affineTransform);
         currentContext.translate(getBounds().width / 2f, getBounds().height / 2f);
         currentContext.rotate(Math.toRadians(startAngle));
-//        g2.transform(currentContext);
 
-        if (progress >= colorChangeValue) {
-            g2.setColor(Color.RED);
+        if (input >= redlineValue) {
+            g2.setColor(redlineColor);
         } else {
-            g2.setColor(Color.WHITE);
+            g2.setColor(foregroundColor);
         }
 
         g2.setStroke(new BasicStroke(14.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));
@@ -88,18 +92,34 @@ public class GaugeComponent extends JPanel {
         currentContext.translate(getBounds().width / 2f, getBounds().height / 2f);
         currentContext.rotate(Math.toRadians(startAngle));
         g2.transform(currentContext);
-        g2.setColor(new Color(50, 50, 50));
+        g2.setColor(backgroundColor);
         g2.setStroke(new BasicStroke(20.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));
 
         g2.drawArc(- (getHeight() - 60 / 2) / 2, - (getHeight() - 60 / 2) / 2, getHeight() - 30, getHeight() - 30, 5, (int) - finalAngle - 10);
     }
 
-    public void setProgress(double value) {
-        progress = value;
+    public void setInput(double value) {
+        input = value;
     }
 
-    public void setColorChangeValue(float value) {
-        this.colorChangeValue = value;
+    public void setFontColor(Color fontColor) {
+        this.fontColor = fontColor;
+    }
+
+    public void setBackgroundColor(Color backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    public void setForegroundColor(Color foregroundColor) {
+        this.foregroundColor = foregroundColor;
+    }
+
+    public void setRedlineColor(Color redlineColor) {
+        this.redlineColor = redlineColor;
+    }
+
+    public void setRedlineValue(float value) {
+        this.redlineValue = value;
     }
 
 }

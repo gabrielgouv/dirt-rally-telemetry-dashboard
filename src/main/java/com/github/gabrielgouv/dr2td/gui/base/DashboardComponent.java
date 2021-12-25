@@ -85,8 +85,12 @@ public class DashboardComponent extends JPanel {
         this.rpmComponent.setDescription("RPM");
         this.rpmComponent.setMinValue(0);
         this.rpmComponent.setMaxValue((MathUtil.roundToNextThousand(resolveMaximumRpm())));
-        this.rpmComponent.setColorChangeValue(resolveMaximumRpm());
-        this.rpmComponent.setProgress(resolveEngineSpeed());
+        this.rpmComponent.setRedlineValue(resolveMaximumRpm());
+        this.rpmComponent.setBackgroundColor(this.configuration.getRpmGaugeBackgroundColor());
+        this.rpmComponent.setForegroundColor(this.configuration.getRpmGaugeForegroundColor());
+        this.rpmComponent.setRedlineColor(this.configuration.getRpmRedlineForegroundColorOverride());
+        this.rpmComponent.setFontColor(this.configuration.getRpmFontColor());
+        this.rpmComponent.setInput(resolveEngineSpeed());
         this.add(this.rpmComponent);
     }
 

@@ -25,7 +25,7 @@ public class Configuration {
     private Color pedalClutchBackgroundColor        = new Color(50, 50, 50);
     private Color pedalClutchForegroundColor        = new Color(0, 0, 255);
     private Color rpmGaugeBackgroundColor           = new Color(50, 50, 50);
-    private Color rpmGaugeForegroundColor           = new Color(255, 0, 0);
+    private Color rpmGaugeForegroundColor           = new Color(255, 255, 255);
     private Color rpmFontColor                      = new Color(255, 255, 255);
     private Color rpmRedlineForegroundColorOverride = new Color(255, 0, 0);
 
