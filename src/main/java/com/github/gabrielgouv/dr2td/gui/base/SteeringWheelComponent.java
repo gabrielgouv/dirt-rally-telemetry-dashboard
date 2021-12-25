@@ -27,7 +27,7 @@ public class SteeringWheelComponent extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
 
         var steerRotation = MathUtil.mapInRange(rotation, -1, 1, -(steerMaxDegree / 2), steerMaxDegree / 2);
-        g2.rotate(Math.toRadians(steerRotation), getWidth() / 2, getHeight() / 2);
+        g2.rotate(Math.toRadians(steerRotation), getBounds().width / 2f, getBounds().height / 2f);
 
         g2.setColor(color);
         g2.fillRect(20, (getHeight() / 2) - 5, getWidth() - 35, 10);
@@ -52,7 +52,7 @@ public class SteeringWheelComponent extends JPanel {
         AffineTransform affineTransform = new AffineTransform();
         AffineTransform currentContext = new AffineTransform();
         currentContext.concatenate(affineTransform);
-        currentContext.translate(getWidth() / 2, getHeight() / 2);
+        currentContext.translate(getBounds().width / 2f, getBounds().height / 2f);
         currentContext.rotate(Math.toRadians(MIN_ANGLE));
         g2.transform(currentContext);
         g2.setStroke(new BasicStroke(10f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));
@@ -68,4 +68,7 @@ public class SteeringWheelComponent extends JPanel {
         this.stripColor = stripColor;
     }
 
+    public void setSteerMaxDegree(float steerMaxDegree) {
+        this.steerMaxDegree = steerMaxDegree;
+    }
 }

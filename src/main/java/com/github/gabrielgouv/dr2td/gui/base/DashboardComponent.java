@@ -95,6 +95,7 @@ public class DashboardComponent extends JPanel {
         this.steeringWheelComponent.setColor(this.configuration.getSteeringWheelColor());
         this.steeringWheelComponent.setStripColor(this.configuration.getSteeringWheelStripColor());
         this.steeringWheelComponent.setRotation(this.telemetryData.getSteerPosition());
+        this.steeringWheelComponent.setSteerMaxDegree(this.configuration.getSteeringWheelMaxDegreeRotation());
         this.add(this.steeringWheelComponent);
     }
 
