@@ -51,3 +51,4 @@ If there is any misconfiguration, the application will ignore the settings file 
 
 ## Images
 ![Demo 1](/docs/images/dr2td_01.png)
+![Demo 2 custom colors](/docs/images/dr2td_02.png)
