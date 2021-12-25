@@ -11,6 +11,8 @@ import java.awt.*;
 
 public class DashboardComponent extends JPanel {
 
+    private static final float REDLINE_MARGIN = 200f;
+
     private final GaugeComponent rpmComponent;
     private final SteeringWheelComponent steeringWheelComponent;
     private final PedalComponent throttlePedalComponent;
@@ -82,9 +84,9 @@ public class DashboardComponent extends JPanel {
         this.rpmComponent.setBackground(new Color(0, 0, 0, 0));
         this.rpmComponent.setDescription("RPM");
         this.rpmComponent.setMinValue(0);
-        this.rpmComponent.setMaxValue((MathUtil.roundToNextThousand(this.telemetryData.getMaximumRpm() * 10)));
-        this.rpmComponent.setColorChangeValue((this.telemetryData.getMaximumRpm() * 10) - 200);
-        this.rpmComponent.setProgress(this.telemetryData.getEngineSpeed() * 10);
+        this.rpmComponent.setMaxValue((MathUtil.roundToNextThousand(resolveMaximumRpm())));
+        this.rpmComponent.setColorChangeValue(resolveMaximumRpm());
+        this.rpmComponent.setProgress(resolveEngineSpeed());
         this.add(this.rpmComponent);
     }
 
@@ -136,7 +138,7 @@ public class DashboardComponent extends JPanel {
     }
 
     private void drawClearColor(Graphics2D g2) {
-        if (this.telemetryData.getEngineSpeed() >= this.telemetryData.getMaximumRpm() && configuration.isDashboardRpmRedlinePropagate()) {
+        if ((resolveEngineSpeed() >= resolveMaximumRpm())) {
             g2.setColor(this.configuration.getDashboardRpmRedlineColorOverride());
         } else {
             g2.setColor(this.configuration.getDashboardBackgroundColor());
@@ -146,6 +148,14 @@ public class DashboardComponent extends JPanel {
 
     public void updateTelemetryData(TelemetryData telemetryData) {
         this.telemetryData = telemetryData;
+    }
+
+    private float resolveMaximumRpm() {
+        return (this.telemetryData.getMaximumRpm() * 10) - REDLINE_MARGIN;
+    }
+
+    private float resolveEngineSpeed() {
+        return this.telemetryData.getEngineSpeed() * 10;
     }
 
 }
