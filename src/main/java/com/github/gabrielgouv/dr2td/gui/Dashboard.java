@@ -18,6 +18,7 @@ public class Dashboard extends DraggableFrame {
         setAlwaysOnTop(true);
         setUndecorated(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/app.png")));
         setBackground(configuration.getDashboardBackgroundColor());
         setSize(700, 125);
 
