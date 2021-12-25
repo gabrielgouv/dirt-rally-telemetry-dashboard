@@ -35,6 +35,11 @@ This application does not have an installer, just run the executable file.
    - extradata = 3
    - port = 10001
 
+4. Open your game and go to the **Options & Extras** menu;
+5. Go to **Graphics** > **Basic Graphics** and set **Display Mode** to **Windowed Fullscreen**
+-------------------------------------------------
+> ⚠️ **The dashboard is not injected into the game, but a program configured to always stay on top. Because of this, it is not possible to play the game in Fullscreen option. To solve this problem we need to use the Windowed Fullscreen option.**
+-------------------------------------------------
 ## Dashboard configuration
 When downloading dashboard, it comes with a configuration file called **settings.cfg**. It is possible configure some settings and customize some dashboard colors.
 
