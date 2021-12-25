@@ -136,7 +136,7 @@ public class DashboardComponent extends JPanel {
     }
 
     private void drawClearColor(Graphics2D g2) {
-        if (this.telemetryData.getEngineSpeed() >= this.telemetryData.getMaximumRpm()) {
+        if (this.telemetryData.getEngineSpeed() >= this.telemetryData.getMaximumRpm() && configuration.isDashboardRpmRedlinePropagate()) {
             g2.setColor(this.configuration.getDashboardRpmRedlineColorOverride());
         } else {
             g2.setColor(this.configuration.getDashboardBackgroundColor());
