@@ -18,13 +18,13 @@ public enum Metric {
         this.multiplier = multiplier;
     }
 
-    public static Optional<Metric> fromCode(String code) {
+    public static Metric fromCode(String code) {
         for (Metric metric : Metric.values()) {
             if (metric.code.equals(code)) {
-                return Optional.of(metric);
+                return metric;
             }
         }
-        return Optional.empty();
+        return Metric.KPH;
     }
 
     public String getName() {
