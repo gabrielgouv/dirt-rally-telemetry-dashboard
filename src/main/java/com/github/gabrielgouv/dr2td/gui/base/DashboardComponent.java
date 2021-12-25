@@ -82,7 +82,7 @@ public class DashboardComponent extends JPanel {
         this.rpmComponent.setLocation(560, 14);
         this.rpmComponent.setSize(110, 110);
         this.rpmComponent.setBackground(new Color(0, 0, 0, 0));
-        this.rpmComponent.setDescription("RPM");
+        this.rpmComponent.setCaption("RPM");
         this.rpmComponent.setMinValue(0);
         this.rpmComponent.setMaxValue((MathUtil.roundToNextThousand(resolveMaximumRpm())));
         this.rpmComponent.setRedlineValue(resolveMaximumRpm());

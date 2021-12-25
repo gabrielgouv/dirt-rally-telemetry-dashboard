@@ -7,58 +7,59 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 
-// TODO: Refactor this entire class
 public class GaugeComponent extends JPanel {
 
+    private final double MIN_ANGLE = 150;
+    private final double MAX_ANGLE = 240;
+
     private double input;
-    private double startAngle = 150;
-    private double finalAngle = 240;
 
-    private double minSpeed = 0;
-    private double maxSpeed = 100;
+    private double minValue;
+    private double maxValue;
 
-    private float redlineValue = 200;
+    private float redlineValue;
     private Color fontColor;
     private Color backgroundColor;
     private Color foregroundColor;
     private Color redlineColor;
 
-    private String description = "- - -";
+    private String caption = "- - -";
 
     @Override
     public void paint(Graphics g) {
-        AffineTransform affineTransform = new AffineTransform();
         super.paintComponent(g);
-
-        double progressT = MathUtil.mapInRange(input, minSpeed, maxSpeed, 0, finalAngle);
-
-        int speed = (int) input;
 
         Graphics2D g2 = (Graphics2D) g;
 
-        String text = String.valueOf(speed);
-        FontMetrics fm = g2.getFontMetrics();
-        int x = (getWidth() - fm.stringWidth(text)) / 2;
-
-        String text2 = description;
-        FontMetrics fm2 = g2.getFontMetrics();
-        int x2 = (getWidth() - fm2.stringWidth(text2)) / 2;
-
-        g2.setColor(fontColor);
-
-        g2.setFont(FontFactory.getDefaultFont(20f));
-        g2.drawString(text, x - 10, getHeight() - 50);
-
-        g2.setFont(FontFactory.getDefaultFont(20f));
-        g2.drawString(description, x2 - 5, getHeight() - 17);
-
+        drawInputValue(g2, input);
+        drawCaption(g2);
         drawBackgroundArc(g2);
+        drawForegroundArc(g2);
+    }
 
-        AffineTransform saveContext = g2.getTransform();
-        AffineTransform currentContext = new AffineTransform();
-        currentContext.concatenate(affineTransform);
-        currentContext.translate(getBounds().width / 2f, getBounds().height / 2f);
-        currentContext.rotate(Math.toRadians(startAngle));
+    private void drawCaption(Graphics2D g2) {
+        g2.setColor(fontColor);
+        g2.setFont(FontFactory.getDefaultFont(20f));
+        g2.drawString(caption, getFontMetric(g2, caption), getHeight() - 17);
+    }
+
+    private void drawInputValue(Graphics2D g2, double input) {
+        g2.setColor(fontColor);
+        g2.setFont(FontFactory.getDefaultFont(20f));
+        String speedAsString = String.valueOf((int) input);
+        g2.drawString(speedAsString, getFontMetric(g2, speedAsString), getHeight() - 50);
+    }
+
+    private int getFontMetric(Graphics2D g2, String value) {
+        String text = String.valueOf(value);
+        FontMetrics fm = g2.getFontMetrics();
+        return (getWidth() - fm.stringWidth(text)) / 2;
+    }
+
+    private void drawForegroundArc(Graphics2D g2) {
+        AffineTransform transform = new AffineTransform();
+        transform.translate(getBounds().width / 2f, getBounds().height / 2f);
+        transform.rotate(Math.toRadians(MIN_ANGLE));
 
         if (input >= redlineValue) {
             g2.setColor(redlineColor);
@@ -66,36 +67,34 @@ public class GaugeComponent extends JPanel {
             g2.setColor(foregroundColor);
         }
 
+        double clampedInput = Math.min(maxValue, Math.max(minValue, input));
+
         g2.setStroke(new BasicStroke(14.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));
-
-        g2.drawArc(- (getHeight() - 60 / 2) / 2, - (getHeight() - 60 / 2) / 2, getHeight() - 30, getHeight() - 30, 0, (int) - progressT);
-
-        g2.transform(saveContext);
+        double inputResult = MathUtil.mapInRange(clampedInput, minValue, maxValue, 0, MAX_ANGLE);
+        g2.drawArc(-(getHeight() - 60 / 2) / 2, -(getHeight() - 60 / 2) / 2, getHeight() - 30, getHeight() - 30, 0, (int) -inputResult);
+        g2.transform(transform);
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCaption(String caption) {
+        this.caption = caption;
     }
 
     public void setMaxValue(double value) {
-        this.maxSpeed = value;
+        this.maxValue = value;
     }
 
     public void setMinValue(double value) {
-        this.minSpeed = value;
+        this.minValue = value;
     }
 
     private void drawBackgroundArc(Graphics2D g2) {
-        AffineTransform affineTransform = new AffineTransform();
-        AffineTransform currentContext = new AffineTransform();
-        currentContext.concatenate(affineTransform);
-        currentContext.translate(getBounds().width / 2f, getBounds().height / 2f);
-        currentContext.rotate(Math.toRadians(startAngle));
-        g2.transform(currentContext);
+        AffineTransform backgroundTransform = new AffineTransform();
+        backgroundTransform.translate(getBounds().width / 2f, getBounds().height / 2f);
+        backgroundTransform.rotate(Math.toRadians(MIN_ANGLE));
+        g2.transform(backgroundTransform);
         g2.setColor(backgroundColor);
         g2.setStroke(new BasicStroke(20.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));
-
-        g2.drawArc(- (getHeight() - 60 / 2) / 2, - (getHeight() - 60 / 2) / 2, getHeight() - 30, getHeight() - 30, 5, (int) - finalAngle - 10);
+        g2.drawArc(- (getHeight() - 60 / 2) / 2, - (getHeight() - 60 / 2) / 2, getHeight() - 30, getHeight() - 30, 5, (int) - MAX_ANGLE - 10);
     }
 
     public void setInput(double value) {
