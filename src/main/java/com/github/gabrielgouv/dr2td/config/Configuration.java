@@ -6,6 +6,7 @@ import java.awt.*;
 
 public class Configuration {
 
+    private int port                                = 10001;
     private boolean antialiasing                    = true;
     private Color dashboardBackgroundColor          = new Color(17, 17, 17);
     private boolean dashboardRpmRedlinePropagate    = true;
@@ -27,6 +28,14 @@ public class Configuration {
     private Color rpmGaugeForegroundColor           = new Color(255, 0, 0);
     private Color rpmFontColor                      = new Color(255, 255, 255);
     private Color rpmRedlineForegroundColorOverride = new Color(255, 0, 0);
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
 
     public boolean isAntialiasing() {
         return antialiasing;
