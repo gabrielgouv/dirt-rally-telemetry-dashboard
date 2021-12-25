@@ -1,7 +1,5 @@
 package com.github.gabrielgouv.dr2td.model.enums;
 
-import java.util.Optional;
-
 public enum Metric {
 
     KPH("km/h", "KPH", 3.6f),
