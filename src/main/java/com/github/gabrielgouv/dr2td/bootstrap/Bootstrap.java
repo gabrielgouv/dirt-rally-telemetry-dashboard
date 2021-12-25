@@ -15,10 +15,9 @@ public class Bootstrap {
 
     public static void main(String[] args) {
         setupLookAndFeel();
-
-        dashboard = new Dashboard(loadConfiguration());
-
-        startUdpClient(10001);
+        Configuration configuration = loadConfiguration();
+        dashboard = new Dashboard(configuration);
+        startUdpClient(configuration.getPort());
     }
 
     private static Configuration loadConfiguration() {
