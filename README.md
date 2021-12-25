@@ -12,6 +12,13 @@
 - Throttle, brake and clutch pedals input
 - Engine RPM
 
+## Download and Installation
+### Latest version is: **[v0.1.0-alpha](https://github.com/gabrielgouv/dirt-rally-telemetry-dashboard/releases/tag/v0.1.0-alpha)**
+
+To download other versions, go to the [releases page](https://github.com/gabrielgouv/dirt-rally-telemetry-dashboard/releases) and look for the specific version.
+
+This application does not have an installer, just run the executable file.
+
 ## DiRT Rally 2.0 configuration
 
 1. Go to `C:\Users\<USER>\Documents\My Games\DiRT Rally 2.0\hardwaresettings`;
@@ -28,15 +35,11 @@
    - extradata = 3
    - port = 10001
 
-## Download and Installation
-### Latest version is: **[v0.1.0-alpha](https://github.com/gabrielgouv/dirt-rally-telemetry-dashboard/releases/tag/v0.1.0-alpha)**
+## Dashboard configuration
+When downloading dashboard, it comes with a configuration file called **settings.cfg**. It is possible configure some settings and customize some dashboard colors.
 
-To download other versions, go to the [releases page](https://github.com/gabrielgouv/dirt-rally-telemetry-dashboard/releases) and look for the specific version.
+You can check out an example template [here](/docs/examples/settings.cfg).
 
-This application does not have an installer, just run the executable file.
+Before starting, check that the `port` defined in the settings file is the same as the one configured in DiRT Rally hardware settings. Also check that the `steering_wheel_max_degree_rotation` property matches your steering wheel and game configuration.
 
-### Use
-WIP
-
-### Dashboard configuration
-WIP
+If there is any misconfiguration, the application will ignore the settings file and start with internal default values.
