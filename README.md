@@ -48,3 +48,6 @@ You can check out an example template [here](/docs/examples/settings.cfg).
 Before starting, check that the `port` defined in the settings file is the same as the one configured in DiRT Rally hardware settings. Also check that the `steering_wheel_max_degree_rotation` property matches your steering wheel and game configuration.
 
 If there is any misconfiguration, the application will ignore the settings file and start with internal default values.
+
+## Images
+![Demo 1](/docs/images/dr2td_01.png)
