@@ -29,11 +29,11 @@ This application does not have an installer, just run the executable file.
            ...
            <udp enabled="true" extradata="3" ip="127.0.0.1" port="10001" delay="1" />
            ...
-       </motion_platform>
+      </motion_platform>
       ```
-   - enabled = true
-   - extradata = 3
-   - port = 10001
+   - **enabled = true**
+   - **extradata = 3**
+   - **port = 10001**
 
 4. Open your game and go to the **Options & Extras** menu;
 5. Go to **Graphics** > **Basic Graphics** and set **Display Mode** to **Windowed Fullscreen**
